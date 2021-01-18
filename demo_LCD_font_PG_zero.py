@@ -69,6 +69,10 @@ lcd2.set_col(block_size=4, block_intv=5, color_on=COLOR_02, color_off=GRAY)
 lcd2.set_row(x_org=3, y_org=39, col_intv=6)
 
 
+lcd3 = LcdFontPG(screen)
+lcd3.set_col(block_size=4, block_intv=5, color_on=COLOR_03, color_off=GRAY)
+lcd3.set_row(x_org=3, y_org=30, col_intv=6)
+
 def disp_one_character(pos_x, pos_y):
     """ display one character of LCD font
 
@@ -79,7 +83,7 @@ def disp_one_character(pos_x, pos_y):
         pos_y (int): virtical position, 垂直位置
     """
 
-    chr_code = int(pos_x / 8) % 6
+    chr_code = int(pos_x / 8) % 10
     if chr_code < 10:
         chr_code += ord("0")
     else:
@@ -147,6 +151,7 @@ def infinite_loop():
 
         disp_one_character(pos_x, pos_y)
         lcd2.update_message("0123456789")
+        lcd3.update_message("173AB049")
 
         pygame.display.update()
         clock.tick(60)

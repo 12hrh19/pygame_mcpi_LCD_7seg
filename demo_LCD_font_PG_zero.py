@@ -79,7 +79,7 @@ def disp_one_character(pos_x, pos_y):
         pos_y (int): virtical position, 垂直位置
     """
 
-    chr_code = int(pos_x / 8) % 3
+    chr_code = int(pos_x / 8) % 6
     if chr_code < 10:
         chr_code += ord("0")
     else:

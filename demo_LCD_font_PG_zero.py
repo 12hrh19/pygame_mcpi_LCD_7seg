@@ -50,7 +50,8 @@ WHITE = (250, 250, 250)
 LCD_BLUE = (149, 227, 203)
 
 WINDOW_WIDTH = 320
-WINDOW_HEIGHT = 240
+WINDOW_HEIGHT = 480
+
 
 pygame.init()
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -72,6 +73,11 @@ lcd2.set_row(x_org=3, y_org=39, col_intv=6)
 lcd3 = LcdFontPG(screen)
 lcd3.set_col(block_size=4, block_intv=5, color_on=COLOR_03, color_off=GRAY)
 lcd3.set_row(x_org=3, y_org=30, col_intv=6)
+
+lcd4 = LcdFontPG(screen)
+lcd4.set_col(block_size=4, block_intv=5, color_on=COLOR_03, color_off=GRAY)
+lcd4.set_row(x_org=3, y_org=21, col_intv=6)
+
 
 def disp_one_character(pos_x, pos_y):
     """ display one character of LCD font
@@ -152,6 +158,7 @@ def infinite_loop():
         disp_one_character(pos_x, pos_y)
         lcd2.update_message("0123456789")
         lcd3.update_message("173AB049")
+        lcd4.update_message("ABCDEFGHIJ")
 
         pygame.display.update()
         clock.tick(60)

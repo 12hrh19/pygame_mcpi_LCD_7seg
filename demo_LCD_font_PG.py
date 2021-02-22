@@ -22,6 +22,7 @@ import pygame.freetype
 from pygame.locals import Rect
 
 from lcdfontdisp import LcdFontDisplay
+from datetime import datetime as dt
 
 
 # ルートからアプリのディレクトリ（このファイル自身が居る）までのpathを取得
@@ -188,8 +189,9 @@ def infinite_loop():
         screen.fill(GRAY)
 
         disp_one_character(pos_x, pos_y)
+        dt_now = dt.now()
         # sample display
-        lcd2.update_message("0123456789abcdef 12:34")
+        lcd2.update_message(str(dt_now.year) + chr(0x17) + str(dt_now.month) + chr(0x10))
         # show the key pressed
         lcd3.update_col(character=chr(key_code if key_code < 0x7f else 0x7f))
         # show ASCII code of the key pressed
